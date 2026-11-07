@@ -15,35 +15,38 @@
 | [`hand_calc.jpg`](hand_calc.jpg) — ảnh tính tay có các bước | [x]|
 
 ## 2. Kết quả chính
-                                 precision  recall  F1 (test)  F1 (SUB 40)  \
-1. BoW + LogReg (tự code)            0.987   0.819      0.895        0.824   
-2. BoW + MLP (deep learning)         0.975   0.840      0.903        0.824   
-3a. Encoder (MiniLM) + kNN           0.884   0.894      0.889        0.889   
-3b. Encoder (MiniLM) + LogReg        0.956   0.915      0.935        0.895   
-3c. Encoder (MiniLM) + MLP head      0.955   0.904      0.929        0.833   
-4a. LLM nhỏ zero-shot                0.000   0.000      0.000        0.000   
-4b. LLM lớn zero-shot                0.000   0.000      0.000        0.000   
-4c. LLM nhỏ few-shot                 0.000   0.000      0.000        0.000   
+| Mô hình | Precision | Recall | F1 (test) | F1 (SUB 40) |
+|---|---:|---:|---:|---:|
+| 1. BoW + LogReg (tự code) | 0.987 | 0.819 | 0.895 | 0.824 |
+| 2. BoW + MLP (deep learning) | 0.975 | 0.840 | 0.903 | 0.824 |
+| 3a. Encoder (MiniLM) + kNN | 0.884 | 0.894 | 0.889 | 0.889 |
+| 3b. Encoder (MiniLM) + LogReg | 0.956 | 0.915 | 0.935 | 0.895 |
+| 3c. Encoder (MiniLM) + MLP head | 0.955 | 0.904 | 0.929 | 0.833 |
+| 4a. LLM nhỏ zero-shot | 0.000 | 0.000 | 0.000 | 0.000 |
+| 4b. LLM lớn zero-shot | 0.000 | 0.000 | 0.000 | 0.000 |
+| 4c. LLM nhỏ few-shot | 0.000 | 0.000 | 0.000 | 0.000 |
 
-                                 train (s)  tin/s (cả lô)  p50 ms/tin  \
-1. BoW + LogReg (tự code)            2.209      53143.270       0.055   
-2. BoW + MLP (deep learning)         3.377      59916.483       0.123   
-3a. Encoder (MiniLM) + kNN          75.442         14.223      49.550   
-3b. Encoder (MiniLM) + LogReg       75.835         37.126      22.603   
-3c. Encoder (MiniLM) + MLP head     76.197         36.649      21.863   
-4a. LLM nhỏ zero-shot                0.000          1.281     690.652   
-4b. LLM lớn zero-shot                0.000          0.996     971.083   
-4c. LLM nhỏ few-shot                 0.000          1.126     773.372   
+| Mô hình | Train (s) | Tin/s (cả lô) | p50 (ms/tin) |
+|---|---:|---:|---:|
+| 1. BoW + LogReg (tự code) | 2.209 | 53143.270 | 0.055 |
+| 2. BoW + MLP (deep learning) | 3.377 | 59916.483 | 0.123 |
+| 3a. Encoder (MiniLM) + kNN | 75.442 | 14.223 | 49.550 |
+| 3b. Encoder (MiniLM) + LogReg | 75.835 | 37.126 | 22.603 |
+| 3c. Encoder (MiniLM) + MLP head | 76.197 | 36.649 | 21.863 |
+| 4a. LLM nhỏ zero-shot | 0.000 | 1.281 | 690.652 |
+| 4b. LLM lớn zero-shot | 0.000 | 0.996 | 971.083 |
+| 4c. LLM nhỏ few-shot | 0.000 | 1.126 | 773.372 |
 
-                                 p95 ms/tin  USD / 1k tin  
-1. BoW + LogReg (tự code)             0.076         0.000  
-2. BoW + MLP (deep learning)          0.153         0.000  
-3a. Encoder (MiniLM) + kNN           69.077         0.000  
-3b. Encoder (MiniLM) + LogReg        30.957         0.000  
-3c. Encoder (MiniLM) + MLP head      28.920         0.000  
-4a. LLM nhỏ zero-shot              1236.492         0.006  
-4b. LLM lớn zero-shot              1262.785         0.061  
-4c. LLM nhỏ few-shot               1335.336         0.015  
+| Mô hình | p95 (ms/tin) | USD / 1k tin |
+|---|---:|---:|
+| 1. BoW + LogReg (tự code) | 0.076 | 0.000 |
+| 2. BoW + MLP (deep learning) | 0.153 | 0.000 |
+| 3a. Encoder (MiniLM) + kNN | 69.077 | 0.000 |
+| 3b. Encoder (MiniLM) + LogReg | 30.957 | 0.000 |
+| 3c. Encoder (MiniLM) + MLP head | 28.920 | 0.000 |
+| 4a. LLM nhỏ zero-shot | 1236.492 | 0.006 |
+| 4b. LLM lớn zero-shot | 1262.785 | 0.061 |
+| 4c. LLM nhỏ few-shot | 1335.336 | 0.015 |
 
 ## 3. Dự đoán và thực tế
 
@@ -75,7 +78,8 @@ Case 2: "Hey are you free for lunch tomorrow? My treat" (Thực tế: Ham). BoW 
 
 ## 5. Thử thách cá nhân
 
-Đề: "Đề #2: ML - Giảm vocab còn 100 từ và tăng lên 5000 từ (build_vocab(..., max_size)). Train lại, báo F1 test. Giải thích xu hướng."
+Đề #2: ML - Giảm vocab còn 100 từ và tăng lên 5000 từ (build_vocab(..., max_size)). Train lại, báo F1 test. Giải thích xu hướng.
+
 Kết quả: 
 - Vocabulary 100 từ: F1 test có xu hướng thấp hơn do số lượng từ quá ít, khiến mô hình mất nhiều đặc trưng quan trọng để nhận diện spam.
 - Vocabulary 2.000 từ: Cung cấp lượng đặc trưng tương đối cân bằng, giúp mô hình nhận diện tốt hơn.
